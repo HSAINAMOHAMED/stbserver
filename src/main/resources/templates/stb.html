@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Acceuil projet XML</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <style>
+        .center{
+        text-align: center;
+    }
+    table,
+td {
+    border: 1px solid #333;
+}
+
+thead,
+tfoot {
+    background-color: #333;
+    color: #fff;
+}
+    </style>
+    <script src='main.js'></script>
+</head>
+<body class="center">
+    <h1 > HELP</h1>
+   <table>
+    <tr>
+        <th>URL</th>
+        <th>Méthode attendue</th>
+        <th colspan="5">Résumé de l’opération</th>
+      </tr>
+      <tr>
+        <td>/</td>
+        <td> GET</td>
+        <td>Affiche la page d’accueilRetourFormat HTML ou XHTML valideAffiche la page d’accueil du projet avec les informations suivantes :•Nom du projet, •Numéro de version, •Nom & Prénom de l’auteur(e), •Logo de l’Université de Roue</td>
+      </tr>
+      <tr>
+        <td>/help</td>
+        <td>GET</td>
+        <td>Affiche la page contenant les informations d’aideRetourFormat XHTML ou XHTML valideAffiche la liste des opérations gérées par le service REST.Pour chacune des opérations proposées par le service, sont affichés : •URL, •Méthode attendue, •Résumé de l’opération (format attendu, format de retour, ...)</td>
+      </tr>
+      <tr>
+        <td>/resume</td>
+        <td>GET</td>
+        <td>Affiche la liste des STB stockéesRetourFlux XMLListe résumée des STB présentes dans la base.Pour chaque STB, ne seront affichés que les informations suivantes : •Identifiant de la STB, •Titre, •Version, •Date, •Description</td>
+      </tr>
+      <tr>
+        <td>/stb?id="id"<br>"id"= valeur numérique de l’identifiant</td>
+        <td>GET</td>
+        <td>Retourne le contenu complet de la STB dont l’identifiant est <id></id></td>
+      </tr>
+      <tr>
+        <td>/htmlstb?id="id"<br>"id"= valeur numérique de l’identifian</td>
+        <td>GET</td>
+        <td>Retourne le contenu complet de la STB dont l’identifiant est <id>RetourIdem précédent, mais au format HTML</td>
+      </tr>
+      <tr>
+        <td>/insert</td>
+        <td>PUT</td>
+        <td>Flux XML décrivant la STB à ajouter, conformément au schéma XSD. OpérationLe flux reçu est validé par le schéma XSD de définition STB20Si le flux est déjà présent (titre et version identique) alors une indication d’erreur est retournée.Si l’opération réussie, alors le flux est ajouté à la base et sa persistance est assuréeLa valeur d'identifiant est automatiquement créée si l'insertion est effectuée.</td>
+      </tr>
+      <tr>
+        <td>delete?id=<id><br><id>= valeur numérique de l’identifian</td>
+        <td>DELETE</td>
+        <td>Suppression de la STB dont l’identifiant est <id>RetourFlux XMLSi l’opération à réussi, retour des informations suivantes :- id → numéro d’identifiant de la STB qui a été supprimée- status → DELETEDSi l’opération à échoué (identifiant inconnu)- status → ERROR</td>
+      </tr>
+       <tr>
+        <td>delete?id=<id><br><id>= valeur numérique de l’identifian</td>
+        <td>DELETE</td>
+        <td>Suppression de la STB dont l’identifiant est <id>RetourFlux XMLSi l’opération à réussi, retour des informations suivantes :- id → numéro d’identifiant de la STB qui a été supprimée- status → DELETEDSi l’opération à échoué (identifiant inconnu)- status → ERROR</td>
+      </tr>
+    </table>
+</body>
+</html>
