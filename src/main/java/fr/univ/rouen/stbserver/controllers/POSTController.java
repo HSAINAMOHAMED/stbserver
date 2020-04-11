@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.STB;
-import model.TestSTB;
+import fr.univ.rouen.stbserver.model.STB;
+import fr.univ.rouen.stbserver.model.TestSTB;
 
 @RestController
 public class POSTController {
@@ -28,7 +28,7 @@ public class POSTController {
 	}
 	@RequestMapping(value = "/xml")
 	public @ResponseBody String getXML() {
-		STB stb = new STB("Test STB", 1, "2020/03/23", "Test JAXB");
+		STB stb = new STB();
 		return stb.toString();
 	}
 }

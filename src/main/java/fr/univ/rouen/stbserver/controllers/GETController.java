@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import model.STB;
+import fr.univ.rouen.stbserver.model.STB;
 
 @RestController
 public class GETController {
@@ -26,7 +26,7 @@ public class GETController {
 
 	@GetMapping(value = "/xml")
 	public @ResponseBody String getXML() {
-		STB stb = new STB("Test STB", 1, "2020/03/23", "Test JAXB");
+		STB stb = new STB();
 		return stb.toString();
 	}
 }
