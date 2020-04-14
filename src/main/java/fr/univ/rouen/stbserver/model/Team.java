@@ -4,6 +4,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -24,27 +26,17 @@ public class Team implements Serializable{
     @Id 
     @GeneratedValue
     @Column(name = "id")
-    @XmlAttribute
     private long id;
 
     
    
-
-	@XmlAttribute
+    @XmlElementWrapper(name = "persons")
+    @XmlElement(name = "person")
     @OneToMany(mappedBy="team")
 	private List<Person> person;
 
 
 	
 
-	public List<Person> getPerson() {
-		return person;
-	}
-
-
-	public void setPerson(List<Person> person) {
-		this.person = person;
-	}
-    
     
 }

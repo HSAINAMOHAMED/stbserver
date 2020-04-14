@@ -1,5 +1,6 @@
 package fr.univ.rouen.stbserver.service;
 
-public class STBServic {
+
+public class STBServic{
 
 }

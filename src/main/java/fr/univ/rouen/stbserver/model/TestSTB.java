@@ -12,7 +12,7 @@ import fr.univ.rouen.stbserver.StbserverApplication;
 
 public class TestSTB {
 
-	/*public String loadFileXML() throws IOException
+	public String loadFileXML() throws IOException
 	
 	{	String ligne;
 		StringBuilder message= new StringBuilder("") ;
@@ -34,8 +34,5 @@ public class TestSTB {
 		}
 		return null;
 	}
-	
-*/
-	
-	
+
 }

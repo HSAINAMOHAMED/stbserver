@@ -9,7 +9,7 @@ public interface STBservice {
 
 	STBDto saveSTB(STBDto usersDto) ;
 
-    void deleteSTB(Integer userId);
+    void deleteSTB(Integer id);
 
     STBDto findByID(int id);
 

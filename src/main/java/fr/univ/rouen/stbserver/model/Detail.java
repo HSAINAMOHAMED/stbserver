@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -33,20 +34,10 @@ public class Detail implements Serializable {
 	@XmlAttribute(name = "id")
 	private long id;
 
-	public Feature getFeature() {
-		return feature;
-	}
-
-	public void setFeature(Feature feature) {
-		this.feature = feature;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
 
 	@OneToOne
-	@XmlAttribute(name = "feature")
+	@XmlElement(name = "feature")
 	private Feature feature;
 
 }

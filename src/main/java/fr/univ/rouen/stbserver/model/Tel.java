@@ -3,7 +3,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,31 +29,15 @@ public class Tel implements Serializable{
 
 	@Id 
     @GeneratedValue
-    @XmlAttribute(name = "id")
     private long id;
  
 	
-	@XmlAttribute(name = "telephone",required=true)
+	@XmlValue
     private String telephone;
     
     @ManyToOne
-    @XmlAttribute(name = "client",required=true)
     private Client client;
 
 	
 
-	public String getTelephone() {
-		return telephone;
-	}
-
-	public void setTelephone(String telephone) {
-		this.telephone = telephone;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-    
-    
-    
 }

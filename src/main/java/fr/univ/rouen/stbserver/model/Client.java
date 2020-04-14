@@ -5,6 +5,8 @@ import java.util.Date;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -31,73 +33,24 @@ public class Client implements Serializable {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
-	@XmlAttribute
 	private long id;
 
 
-
-
-	public String getEntity() {
-		return entity;
-	}
-
-	public void setEntity(String entity) {
-		this.entity = entity;
-	}
-
-	public String getFirstname() {
-		return firstname;
-	}
-
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
-
-	public String getLastname() {
-		return lastname;
-	}
-
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
-
-	public List<Mail> getMail() {
-		return mail;
-	}
-
-	public void setMail(List<Mail> mail) {
-		this.mail = mail;
-	}
-
-	public List<Tel> getTel() {
-		return tel;
-	}
-
-	public void setTel(List<Tel> tel) {
-		this.tel = tel;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
-	@Column(name = "entity", nullable = false, length = 32)
-	@XmlAttribute
+	@XmlElement(name = "entity")
 	private String entity;
 
-	@Column(name = "firstname", nullable = false, length = 32)
-	@XmlAttribute
+	@XmlElement(name = "firstname")
 	private String firstname;
 
-	@Column(name = "lastname", nullable = true, length = 32)
-	@XmlAttribute
+	@XmlElement(name = "lastname")
 	private String lastname;
 
-	@XmlAttribute
+	@XmlElement
 	@OneToMany(mappedBy = "client")
 	private List<Mail> mail;
 	
-	@XmlAttribute
+	@XmlElementWrapper(name = "tels")
+    @XmlElement(name = "tel")
 	@OneToMany(mappedBy = "client")
 	private List<Tel> tel;
 	

@@ -3,7 +3,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
 
 import org.springframework.web.bind.annotation.RestController;
 
@@ -27,32 +29,20 @@ public class Mail implements Serializable{
 
 	@Id 
     @GeneratedValue
-    @XmlAttribute(name = "id")
     private long id;
  
    
 
-	@XmlAttribute(name = "mail",required=true)
+	@XmlValue
     private String mail;
     
     @ManyToOne
-    @XmlAttribute(name = "client",required=true)
     private Client client;
 
 	
 
-	public String getMail() {
-		return mail;
-	}
 
-	public void setMail(String mail) {
-		this.mail = mail;
-	}
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
+	
     
     
 }

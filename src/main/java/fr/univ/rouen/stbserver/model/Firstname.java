@@ -2,7 +2,10 @@ package fr.univ.rouen.stbserver.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -29,59 +32,68 @@ public class Firstname implements Serializable{
 
 	@Id 
     @GeneratedValue
-    @XmlAttribute(name = "id")
     private long id;
  
-    @XmlAttribute(name = "nom",required=true)
+	public Firstname()
+	{
+		super();
+		this.id = 33;
+		this.nom = "gg";
+		this.gender = Gender.Mme;
+		this.lastname = "bb";
+		this.mail = "hh";
+	}
+	
+	
+    public Firstname(long id, String nom, Gender gender, String lastname, String mail) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.gender = gender;
+		this.lastname = lastname;
+		this.mail = mail;
+	}
+
+	@XmlElement(name = "nom")
     private String nom;
     
 
-    @XmlAttribute(name = "gender",required=true)
+    @XmlAttribute
     @Enumerated(EnumType.STRING)
     private Gender gender;
 
-    @XmlAttribute(name = "lastname",required=true)
+    @XmlAttribute
     private String lastname;
 
-    @XmlAttribute(name = "mail",required=true)
+    @XmlAttribute
     private String mail;
 
-	public String getNom() {
-		return nom;
+
+	public void setId(long id) {
+		this.id = id;
 	}
+
 
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
 
-	public Gender getGender() {
-		return gender;
-	}
-
+	
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 
-	public String getLastname() {
-		return lastname;
-	}
+	
 
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
-	}
-
-	public String getMail() {
-		return mail;
 	}
 
 	public void setMail(String mail) {
 		this.mail = mail;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-    
+	
     
     
 }

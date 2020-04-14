@@ -3,6 +3,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.web.bind.annotation.RestController;
@@ -31,28 +32,14 @@ public class functionaliteProjet implements Serializable{
     private long id;
  
 	
-	@XmlAttribute(name = "functionalite",required=true)
+	@XmlElement(name = "functionalite",required=true)
     private String functionalite;
     
     @ManyToOne
-    @XmlAttribute(name = "feature")
     private Feature feature;
 
 	
 
-	public String getFunctionalite() {
-		return functionalite;
-	}
-
-	public void setFunctionalite(String functionalite) {
-		this.functionalite = functionalite;
-	}
-
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-    
     
     
     
